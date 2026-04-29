@@ -1,31 +1,33 @@
 <?php
-$ablakcim = array(
-    'cim' => 'Mini honlap Kft.',
-);
+require_once('./includes/db.inc.php');
 
-$fejlec = array(
+$ablakcim = [
+    'cim' => 'Hulladékkezelő Portál',
+];
+
+$fejlec = [
     'kepforras' => 'logo.png',
-    'kepalt' => 'logo',
-	'cim' => 'Mini honlap',
-	'motto' => ''
-);
+    'kepalt'    => 'logo',
+    'cim'       => 'Hulladékkezelő Portál',
+    'motto'     => 'Tisztább környezet mindenkinek'
+];
 
-$lablec = array(
-    'copyright' => 'Copyright '.date("Y").'.',
-    'ceg' => 'Mini honlap Kft.'
-);
+$lablec = [
+    'copyright' => 'Copyright ' . date("Y") . '.',
+    'ceg'       => 'Hulladékkezelő Portál'
+];
 
-$oldalak = array(
-	'/' => array('fajl' => 'cimlap', 'szoveg' => 'Címlap', 'menun' => array(1,1)),
-	'bemutatkozas' => array('fajl' => 'bemutatkozas', 'szoveg' => 'Bemutatkozás', 'menun' => array(1,1)),
-	'kapcsolat' => array('fajl' => 'kapcsolat', 'szoveg' => 'Kapcsolat', 'menun' => array(1,1)),
-	'cikkek' => array('fajl' => 'cikkek', 'szoveg' => 'Cikkek', 'menun' => array(1,1)),
-    'tablazat' => array('fajl' => 'tablazat', 'szoveg' => 'Táblázat', 'menun' => array(1,1)),
-    'belepes' => array('fajl' => 'belepes', 'szoveg' => 'Belépés', 'menun' => array(1,0)),
-    'kilepes' => array('fajl' => 'kilepes', 'szoveg' => 'Kilépés', 'menun' => array(0,1)),
-    'belep' => array('fajl' => 'belep', 'szoveg' => '', 'menun' => array(0,0)),
-    'regisztral' => array('fajl' => 'regisztral', 'szoveg' => '', 'menun' => array(0,0))
-);
+$oldalak = [
+    '/'          => ['fajl' => 'cimlap',    'szoveg' => 'Főoldal',      'menun' => [1,1]],
+    'tesztoldal'     => ['fajl' => 'tesztoldal',    'szoveg' => 'Tesztoldal',       'menun' => [1,1]],
+    'naptar'     => ['fajl' => 'naptar',    'szoveg' => 'Naptár',       'menun' => [1,1]],
+    'szolgaltatasok' => ['fajl' => 'szolgaltatasok', 'szoveg' => 'Szolgáltatások', 'menun' => [1,1]],
+    'kapcsolat'  => ['fajl' => 'kapcsolat', 'szoveg' => 'Kapcsolat',    'menun' => [1,1]],
+    'uzenetek'   => ['fajl' => 'uzenetek',  'szoveg' => 'Üzenetek',     'menun' => [0,1]],
+    'belepes'    => ['fajl' => 'belepes',   'szoveg' => 'Belépés',      'menun' => [1,0]],
+    'kilepes'    => ['fajl' => 'kilepes',   'szoveg' => 'Kilépés',      'menun' => [0,1]],
+    'belep'      => ['fajl' => 'belep',     'szoveg' => '',             'menun' => [0,0]],
+    'regisztral' => ['fajl' => 'regisztral','szoveg' => '',             'menun' => [0,0]],
+];
 
-$hiba_oldal = array ('fajl' => '404', 'szoveg' => 'A keresett oldal nem található!');
-?>
+$hiba_oldal = ['fajl' => '404', 'szoveg' => 'A keresett oldal nem található!'];
