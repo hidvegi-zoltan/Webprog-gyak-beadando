@@ -1,0 +1,119 @@
+
+:root {
+    --zold-fo:    #2d6a4f;
+    --zold-vil:   #52b788;
+    --zold-hatter:#d8f3dc;
+    --szurke:     #6c757d;
+    --arnyek:     0 2px 12px rgba(0,0,0,0.08);
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.site-header {
+    background: linear-gradient(135deg, var(--zold-fo) 0%, #1b4332 100%);
+    color: white;
+}
+.site-header img { border-radius: 8px; }
+.site-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+.site-motto {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+.bejelentkezett {
+    font-size: 0.9rem;
+    background: rgba(255,255,255,0.15);
+    padding: 6px 14px;
+    border-radius: 20px;
+}
+
+/* NAVBAR */
+.site-navbar {
+    background-color: var(--zold-vil);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.site-navbar .nav-link {
+    color: white !important;
+    font-weight: 500;
+    padding: 10px 16px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+.site-navbar .nav-link:hover,
+.site-navbar .nav-link.active {
+    background: rgba(255,255,255,0.25);
+}
+
+.site-footer {
+    background: linear-gradient(135deg, var(--zold-fo) 0%, #1b4332 100%);
+    color: rgba(255,255,255,0.85);
+    margin-top: 3rem;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #1b4332 0%, var(--zold-fo) 50%, var(--zold-vil) 100%);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+}
+.hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-content { position: relative; z-index: 1; }
+
+
+.section-title {
+    font-weight: 700;
+    color: var(--zold-fo);
+    position: relative;
+    padding-bottom: 12px;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: var(--zold-vil);
+    border-radius: 2px;
+}
+
+.info-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-radius: 12px !important;
+}
+.info-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
+}
+
+.waste-type-card {
+    background: white;
+    transition: transform 0.2s;
+}
+.waste-type-card:hover { transform: translateY(-2px); }
+.waste-badge {
+    display: inline-block;
+    min-width: 52px;
+    text-align: center;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+video { display: block; border-radius: 8px 8px 0 0; }
