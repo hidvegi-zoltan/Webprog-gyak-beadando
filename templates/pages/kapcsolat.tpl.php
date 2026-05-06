@@ -1,6 +1,108 @@
-<h2>Adatok:</h2>
-<p>Ügyvezető: <strong>Valaki Az</strong></p>
-<p>E-mail: <strong>valaki.az@minihonlap.hu</strong></p>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2726.3375296155727!2d19.66695091525771!3d46.89607994478184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4743da7a6c479e1d%3A0xc8292b3f6dc69e7f!2sPallasz+Ath%C3%A9n%C3%A9+Egyetem+GAMF+Kar!5e0!3m2!1shu!2shu!4v1475753185783" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-<br>
-<a target="_blank" href="https://www.google.hu/maps/place/Pallasz+Ath%C3%A9n%C3%A9+Egyetem+GAMF+Kar/@46.8960799,19.6669509,17z/data=!3m1!4b1!4m5!3m4!1s0x4743da7a6c479e1d:0xc8292b3f6dc69e7f!8m2!3d46.8960763!4d19.6691396?hl=hu">Nagyobb térkép</a>
+<h2 class="section-title mb-4">Kapcsolat</h2>
+
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white fw-bold py-3">
+                <i class="bi bi-envelope me-2 text-success"></i>Írjon nekünk!
+            </div>
+            <div class="card-body p-4">
+
+                <?php if ($siker): ?>
+                    <div class="alert alert-success">
+                        <i class="bi bi-check-circle me-2"></i>
+                        Üzenete sikeresen elküldve, hamarosan felvesszük Önnel a kapcsolatot!
+                    </div>
+                <?php endif; ?>
+
+                <form method="post" id="kapcsolatForm" novalidate>
+
+                    <!-- NÉV -->
+                    <div class="mb-3">
+                        <label for="nev" class="form-label">Név <span class="text-danger">*</span></label>
+                        <input type="text" name="nev" id="nev"
+                               class="form-control <?= isset($hibak['nev']) ? 'is-invalid' : '' ?>"
+                               value="<?= htmlspecialchars($form['nev']) ?>">
+                        <div class="invalid-feedback" id="nev-hiba">
+                            <?= $hibak['nev'] ?? 'A név megadása kötelező (min. 3 karakter)!' ?>
+                        </div>
+                    </div>
+
+                    <!-- EMAIL -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-mail cím <span class="text-danger">*</span></label>
+                        <input type="email" name="email" id="email"
+                               class="form-control <?= isset($hibak['email']) ? 'is-invalid' : '' ?>"
+                               value="<?= htmlspecialchars($form['email']) ?>">
+                        <div class="invalid-feedback" id="email-hiba">
+                            <?= $hibak['email'] ?? 'Érvényes e-mail cím megadása kötelező!' ?>
+                        </div>
+                    </div>
+
+                    <!-- ÜZENET -->
+                    <div class="mb-4">
+                        <label for="uzenet" class="form-label">Üzenet <span class="text-danger">*</span></label>
+                        <textarea name="uzenet" id="uzenet" rows="5"
+                                  class="form-control <?= isset($hibak['uzenet']) ? 'is-invalid' : '' ?>"
+                                  ><?= htmlspecialchars($form['uzenet']) ?></textarea>
+                        <div class="invalid-feedback" id="uzenet-hiba">
+                            <?= $hibak['uzenet'] ?? 'Az üzenet megadása kötelező (min. 10 karakter)!' ?>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-success w-100">
+                        <i class="bi bi-send me-2"></i>Üzenet küldése
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('kapcsolatForm').addEventListener('submit', function(e) {
+    let valid = true;
+
+    // Név ellenőrzés
+    const nev = document.getElementById('nev');
+    const nevHiba = document.getElementById('nev-hiba');
+    if (nev.value.trim().length < 3) {
+        nev.classList.add('is-invalid');
+        nevHiba.textContent = 'A név megadása kötelező (min. 3 karakter)!';
+        valid = false;
+    } else {
+        nev.classList.remove('is-invalid');
+        nev.classList.add('is-valid');
+    }
+
+    // Email ellenőrzés
+    const email = document.getElementById('email');
+    const emailHiba = document.getElementById('email-hiba');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.value.trim())) {
+        email.classList.add('is-invalid');
+        emailHiba.textContent = 'Érvényes e-mail cím megadása kötelező!';
+        valid = false;
+    } else {
+        email.classList.remove('is-invalid');
+        email.classList.add('is-valid');
+    }
+
+    // Üzenet ellenőrzés
+    const uzenet = document.getElementById('uzenet');
+    const uzenetHiba = document.getElementById('uzenet-hiba');
+    if (uzenet.value.trim().length < 10) {
+        uzenet.classList.add('is-invalid');
+        uzenetHiba.textContent = 'Az üzenet megadása kötelező (min. 10 karakter)!';
+        valid = false;
+    } else {
+        uzenet.classList.remove('is-invalid');
+        uzenet.classList.add('is-valid');
+    }
+
+    if (!valid) {
+        e.preventDefault();
+    }
+});
+</script>

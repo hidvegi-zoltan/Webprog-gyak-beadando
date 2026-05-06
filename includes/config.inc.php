@@ -28,6 +28,7 @@ $oldalak = [
     'kilepes'    => ['fajl' => 'kilepes',   'szoveg' => 'Kilépés',      'menun' => [0,1]],
     'belep'      => ['fajl' => 'belep',     'szoveg' => '',             'menun' => [0,0]],
     'regisztral' => ['fajl' => 'regisztral','szoveg' => '',             'menun' => [0,0]],
+    'kepek' => ['fajl' => 'kepek', 'szoveg' => 'Képek', 'menun' => [1,1]],
 ];
 
 $hiba_oldal = ['fajl' => '404', 'szoveg' => 'A keresett oldal nem található!'];
