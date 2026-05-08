@@ -1,0 +1,6 @@
+.uzenet-cella {
+    max-width: 300px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: 0.9rem;
+}
