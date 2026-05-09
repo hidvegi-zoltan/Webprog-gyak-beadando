@@ -21,6 +21,7 @@
                         <th>Küldő neve</th>
                         <th>E-mail</th>
                         <th>Üzenet</th>
+                        <th>Felhasználó</th>
                         <th>Küldés ideje</th>
                     </tr>
                 </thead>
@@ -36,6 +37,18 @@
                         </td>
                         <td class="uzenet-cella">
                             <?= nl2br(htmlspecialchars($u['uzenet'])) ?>
+                        </td>
+                        <td>
+                            <?php if ($u['csaladi_nev']): ?>
+                                <span class="badge bg-success">
+                                    <i class="bi bi-person-check me-1"></i>
+                                    <?= htmlspecialchars($u['csaladi_nev'] . ' ' . $u['uto_nev']) ?>
+                                </span>
+                            <?php else: ?>
+                                <span class="badge bg-secondary">
+                                    <i class="bi bi-person me-1"></i>Vendég
+                                </span>
+                            <?php endif; ?>
                         </td>
                         <td class="text-muted small text-nowrap">
                             <i class="bi bi-clock me-1"></i>
